@@ -30,7 +30,7 @@ class Media {
     }
   
     getAverageRating() {
-      let sumtotal = this.ratings.reduce              (function (total, num) {return total + num;}, 0);
+      let sumtotal = this.ratings.reduce(function (total, num) {return total + num;}, 0);
       return sumtotal / this.ratings.length;
     }
   
