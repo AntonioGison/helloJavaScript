@@ -1,3 +1,10 @@
+////
+///
+// A good test framework is fast, complete, reliable, isolated, maintainable, and expressive.  
+
+//to run the test in mocha
+npm test
+
 ////SETUP///
 //the Setup phase is where objects, variables, and set conditions that tests depend on are created.
 
@@ -9,6 +16,7 @@
 
 ////
 
+//the .pop in describe is used just as a lable, it doesn't have any functionality, you can also write a whole sentence, check the ex in teardown
 describe('.pop', () => {
     it('returns the last element in the array [3phase]', () => {
       // Setup

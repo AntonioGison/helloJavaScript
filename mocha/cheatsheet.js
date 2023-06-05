@@ -1,5 +1,10 @@
 //Test frameworks are used to organize and automate tests that provide useful feedback when errors occur.
 
+//to run the test in mocha
+npm test
+
+// ==> https://mochajs.org/#getting-started DOCUMENTATION TO INSTALL IT! <==
+
 // execute before
 before(() => {
     path = './message.txt';
