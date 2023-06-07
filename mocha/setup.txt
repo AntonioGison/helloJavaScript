@@ -1,0 +1,33 @@
+//tutorial https://youtu.be/gtrh9E-Gixo?list=PLMZdod-kiMhLl5y1G14nzXk-PUEs4mmyx
+
+STEP 1 
+
+npm init -y 
+
+STEP 2
+
+npm i mocha chai 
+
+STEP 3
+
+go in package.json and change from:
+
+"test": "echo \"Error: no test specified\" && exit 1"
+
+to
+
+"test": "mocha"
+
+STEP 4
+
+create a folder called test
+
+STEP 5
+
+in the js file, in this case we use setup_exercise_verify_edgecase index.js so the object to export is called Calculate
+module.exports = Calculate;
+
+STEP 6
+import the external module
+var Calculate =  require('../index.js')
+
