@@ -10,7 +10,7 @@ const inventory = {
   // Write your code below:
   
   function myExecutor(resolve,reject){
-    if(inventory.sunglasses < 0){
+    if(inventory.sunglasses > 0){
       resolve('Sunglasses order processed.');
     }
     else{
