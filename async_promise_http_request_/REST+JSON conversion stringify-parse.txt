@@ -1,0 +1,193 @@
+
+@@@@@@@@    REST API    @@@@@@
+REpresentational State Transfer
+
+is an architectural style for providing standards between computer systems on the web, 
+making it easier for systems to communicate with each other.
+
+
+it's stateless and use separation of concerns:
+
+it's stateless:
+meaning that the server does not need to know anything about what state the client is in and vice versa.
+allowing the server and client to understand messages independently without prior context,
+achieved through the use of RESOURCES rather than COMMANDS, leading to reliable, performant,
+and scalable applications that can be managed and updated without disrupting the system during operation.
+
+separation of concern(modular):
+the code on the client side can be changed at any time without affecting the operation of the server, and viceversa.
+
+
+Communication between Client and Server
+In the REST architecture, clients send requests to retrieve or modify resources,
+and servers send responses to these requests. Let’s take a look at the standard ways to make requests and send responses.
+
+
+Making Requests
+REST requires that a client make a request to the server in order to retrieve or modify data on the server. A request generally consists of:
+
+1) an HTTP verb, which defines what kind of operation to perform
+2) a header, which allows the client to pass along information about the request
+3) a path to a resource
+4) an optional message body containing data
+
+
+1) HTTP Verbs
+There are 4 basic HTTP verbs we use in requests to interact with resources in a REST system:
+
+GET — retrieve a specific resource (by id) or a collection of resources
+POST — create a new resource
+PUT — update a specific resource (by id)
+DELETE — remove a specific resource by id
+
+2) Headers and Accept parameters
+
+In the header of the request, the client sends the type of content that it is able to receive from the server.
+This is called the Accept field, and it ensures that the server does not send data that cannot be understood or processed by the client.
+
+The options for types of content are MIME Types (or Multipurpose Internet Mail Extensions)
+
+MIME Types, used to specify the content types in the Accept field, consist of a type and a subtype. They are separated by a slash (/).
+For example, a text file containing HTML would be specified with the type text/html.
+If this text file contained CSS instead, it would be specified as text/css.
+
+Other types and commonly used subtypes:
+
+image — image/png, image/jpeg, image/gif
+audio — audio/wav, audio/mpeg
+video — video/mp4, video/ogg
+application — application/json, application/pdf, application/xml, application/octet-stream
+
+
+For example, a client accessing a resource with id 23 in an articles resource on a server might send a GET request like this:
+
+GET /articles/23
+Accept: text/html, application/xhtml
+
+3) Paths
+the path is where the operation should perform on. 
+
+A path like fashionboutique.com/customers/223/orders/12 
+
+we are accessing customer 223 and order 12
+
+4) Sending Responses
+
+when the server is sending data to the client, it must include the type of data, this is included
+in the content-type.
+These content types are MIME Types, just as they are in the accept field of the request header.
+
+For example, when a client is accessing a resource with id 23 in an articles resource with this GET Request:
+
+GET /articles/23 HTTP/1.1
+Accept: text/html, application/xhtml
+
+The server might send back the content with the response header:
+
+HTTP/1.1 200 (OK)
+Content-Type: text/html
+
+*) Response Codes
+
+Responses from the server contain status codes to the success of the operation.
+
+Status code	            Meaning
+200                     (OK)	This is the standard response for successful HTTP requests.
+201                     (CREATED)	This is the standard response for an HTTP request that resulted in an item being successfully created.
+204                     (NO CONTENT)	This is the standard response for successful HTTP requests, where nothing is being returned in the response body.
+400                     (BAD REQUEST)	The request cannot be processed because of bad request syntax, excessive size, or another client error.
+403                     (FORBIDDEN)	The client does not have permission to access this resource.
+404                     (NOT FOUND)	The resource could not be found at this time. It is possible it was deleted, or does not exist yet.
+500                     (INTERNAL SERVER ERROR)	The generic answer for an unexpected failure if there is no more specific information available.
+
+For each HTTP verb, there are expected status codes a server should return upon success:
+
+GET — return 200 (OK)
+POST — return 201 (CREATED)
+PUT — return 200 (OK) Update an existing resource or create a new resource with a specific identifier.
+DELETE — return 204 (NO CONTENT) If the operation fails, return the most specific status code possible corresponding to the problem that was encountered.
+
+
+**) Examples of Requests and Responses
+
+If we wanted to view all customers, the request would look like this:
+
+GET http://fashionboutique.com/customers
+Accept: application/json
+
+
+A possible response header would look like:
+
+Status Code: 200 (OK)
+Content-type: application/json
+
+followed by the customers data requested in application/json format.
+
+Create a new customer by posting the data:
+
+POST http://fashionboutique.com/customers
+Body:
+{
+  “customer”: {
+    “name” = “Scylla Buss”,
+    “email” = “scylla.buss@codecademy.org”
+  }
+}
+
+The server then generates an id for that object and returns it back to the client, with a header like:
+
+201 (CREATED)
+Content-type: application/json
+
+To view a single customer we GET it by specifying that customer’s id:
+
+GET http://fashionboutique.com/customers/123
+Accept: application/json
+
+A possible response header would look like:
+
+Status Code: 200 (OK)
+Content-type: application/json
+
+followed by the data for the customer resource with id 23 in application/json format.
+
+We can update that customer by PUT ting the new data:
+
+PUT http://fashionboutique.com/customers/123
+Body:
+{
+  “customer”: {
+    “name” = “Scylla Buss”,
+    “email” = “scyllabuss1@codecademy.com”
+  }
+}
+A possible response header would have Status Code: 200 (OK), to notify the client that the item with id 123 has been modified.
+
+We can also DELETE that customer by specifying its id:
+
+DELETE http://fashionboutique.com/customers/123
+
+---------------------------------
+
+JSON with javascript
+
+
+CONVERT FROM JSON TO JS  (PARSE) JSON.parse()
+
+The following code converts a JSON string object, jsonData, into a JavaScript object, jsObject, and logs jsObject on the console.
+
+const jsonData = '{ "book": { "name": "JSON Primer", "price": 29.99, "inStock": true, "rating": null } }';
+ 
+const jsObject = JSON.parse(jsonData);
+ 
+console.log(jsObject);
+
+----------------------------------
+
+FROM OBJECT TO JSON  JSON.stringify()
+
+Before we can send off our data across the web, we need to convert them to a JSON string.
+
+const jsObject = { book: 'JSON Primer', price: 29.99, inStock: true, rating: null };
+const jsonData = JSON.stringify(jsObject);
+console.log(jsonData);
