@@ -1,0 +1,27 @@
+Open up your terminal.
+
+If you’ve previously installed create-react-app globally via npm install -g create-react-app, it is recommended that you uninstall the package first.
+
+1.A)In your terminal run these commands:
+
+npm uninstall -g create-react-app
+npx create-react-app myfirstreactapp
+
+1.B) If you’ve never installed create-react-app before, you can simply run this command:
+
+npx create-react-app myfirstreactapp
+
+(Feel free to replace myfirstreactapp with whatever name you want, as long as it doesn’t contain capital letters :-))
+
+2) We suggest that you begin by typing:
+
+  cd myfirstreactapp
+  npm start
+
+
+the server started on  http://localhost:3000/
+
+3) go to src then write in app.js and index.js (which is the entry point)
+
+4) App.js contains the top-level component(the one you creates) and index.js renders it.
+
