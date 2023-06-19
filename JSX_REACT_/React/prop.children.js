@@ -16,7 +16,7 @@ import List from './List';
 function App() {
   return (
     <div>
-      <List type='Living Musician'>
+      <List type='Living Musician'>   //this is a component, because you can also write <list></list> instead of <list />
         <li>Sachiko M</li>
         <li>Harvey Sid Fisher</li>
       </List>
@@ -41,7 +41,7 @@ function List(props) {
   return (
     <div>
       <h1>{titleText}</h1>
-      <ul>{props.children}</ul>
+      <ul>{props.children}</ul> //inside the children component use the reserved word props.children
     </div>
   );
 }

@@ -7,7 +7,7 @@ If you’ve previously installed create-react-app globally via npm install -g cr
 npm uninstall -g create-react-app
 npx create-react-app myfirstreactapp
 
-1.B) If you’ve never installed create-react-app before, you can simply run this command:
+---> 1.B) If you’ve never installed create-react-app before, you can simply run this command:
 
 npx create-react-app myfirstreactapp
 

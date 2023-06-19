@@ -44,6 +44,7 @@ function Button({displayText}) {
 }
 //-------------------------------------------------------
 //EXAMPLE
+
 //App.js
 import React from 'react';
 import Product from './Product'
@@ -73,7 +74,7 @@ export default Product;
 //-------------------------------------------------------
 //Other things with props
 
-You can do more with props than just display them. You can also use props to make decisions.
+//You can do more with props than just display them. You can also use props to make decisions.
 
 function LoginMsg(props) {
   if (props.password === 'a-tough-password') {
@@ -82,5 +83,5 @@ function LoginMsg(props) {
     return <h2>Sign In Failed..</h2>
   }
 }
-In this example, we use the props passed in to make a decision rather than rendering the value to the screen.
+//In this example, we use the props passed in to make a decision rather than rendering the value to the screen.
 

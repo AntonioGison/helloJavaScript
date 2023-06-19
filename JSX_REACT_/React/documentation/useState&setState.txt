@@ -1,0 +1,5 @@
+setState is merging the previous state with the new one, it means that you dont have to pass the full state object every time you want to change some part of the state.
+
+React will update given properties and won't touch the rest.
+
+The useState's updater rewrites a previous state with a new one and it does not perform any merging.
