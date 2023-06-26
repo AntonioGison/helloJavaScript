@@ -9,6 +9,7 @@ export default function Login() {
         //in this way we rewrite but we save the previous value
       setFormState((prev) => ({
         ...prev,
+        // dynamic property, this means [name] can be anything, it can be firstName or password in our case
         [name]: value
       }));
     };
