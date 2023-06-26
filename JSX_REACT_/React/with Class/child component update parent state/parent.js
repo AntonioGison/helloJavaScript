@@ -19,7 +19,7 @@ changeName(newName) {
 }
 
   render() {
-    return <Child name={this.state.name} onChange={this.changeName} />
+    return <Child name={this.state.name} changeParent={this.changeName} />
   }
 }
 

@@ -8,7 +8,7 @@ export class Child extends React.Component {
 }
   handleChange(e) {
   const name = e.target.value;
-  this.props.onChange(name);
+  this.props.changeParent(name); //the onChange is a props
 }
 
   render() {
