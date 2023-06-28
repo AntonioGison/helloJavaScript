@@ -21,6 +21,7 @@ const action = {
 /////////////////////////////////////////////////////////////////////////////////
 
 //an example of an action used in a reducer function
+//to tie state and actions together, we write a function called a reducer
 const reducer = (state = 0, action) => {
     switch (action.type) {
       case 'incrementByAmount':
@@ -29,7 +30,8 @@ const reducer = (state = 0, action) => {
         return state;
     }
   }
-   
+
+//An action is an object that expresses a desired change to the state. 
   const action = {
     type: 'incrementByAmount',
     payload: 2 
@@ -66,3 +68,58 @@ console.log(x, updatedX); // Prints 5, 6
  *  In nearly every Redux application, there will only be one store
  */
 
+// The createStore() helper function has a single argument, a reducer function.
+/*
+ to create a store with lightSwitchReducer, you could write:
+*/
+import { createStore } from 'redux'
+ 
+const initialState = 'on';
+const lightSwitchReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case 'toggle':
+      return state === 'on' ? 'off' : 'on';
+    default:
+      return state;
+  }
+}
+ 
+const store = createStore(lightSwitchReducer);
+
+//### 4.A
+
+//store.dispatch(), can be used to dispatch an action to the store, indicating that you wish to update the state.
+// Its only argument is an action object, which must have a type property describing the desired state change.
+
+const action = { type: 'actionDescriptor' }; 
+store.dispatch(action);
+
+//### 4.B
+
+store.getState() // which returns the current value of the store’s state.
+ 
+//ex 1
+store.dispatch({ type: 'toggle' });
+console.log(store.getState()); // Prints 'on'
+
+//ex 2
+import { createStore } from 'redux';
+
+const initialState = 0;
+const countReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case 'increment':
+      return state + 1;
+    default:
+      return state;
+  }
+}
+
+const store = createStore(countReducer);
+
+// Dispatch called twice to increment twice, don't forget the {} 
+store.dispatch( {type: 'increment'} );
+store.dispatch({type: 'increment'});
+
+//output: 2 don't forget to console log!
+console.log(store.getState());
