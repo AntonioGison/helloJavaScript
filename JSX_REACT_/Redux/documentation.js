@@ -14,9 +14,29 @@ const action = {
   payload: 'Take selfies'
 };
 // Every action must have a type property with a string value. This describes the action.
-// Typically, an action has a payload property with an object value. This includes any information related to the action. 
+// An action has a payload property with an object value. This includes any information related to the action. 
 //In this case, the payload is the todo text.
 // When an action is generated and notifies other parts of the application, we say that the action is dispatched.
+
+/////////////////////////////////////////////////////////////////////////////////
+
+//an example of an action used in a reducer function
+const reducer = (state = 0, action) => {
+    switch (action.type) {
+      case 'incrementByAmount':
+        return state + action.payload;
+      default:
+        return state;
+    }
+  }
+   
+  const action = {
+    type: 'incrementByAmount',
+    payload: 2 
+  };
+   
+  // action and reducer combined
+  const newState = reducer(1, action);
 
 
 //### 2
@@ -28,3 +48,21 @@ const action = {
 //1) They should only calculate the new state value based on the state and action arguments.
 //2) They are not allowed to modify the existing state. Instead, they must copy the existing state and make changes to the copied values.
 //3) They must not do any asynchronous logic or have other “side effects”.
+
+
+//### 3
+// Note that, plain strings, numbers, and booleans are immutable in JavaScript so we can just return them WITHOUT making a copy:
+
+const immutator = (num) => num + 1;
+const x = 5;
+const updatedX = immutator(x);
+ 
+console.log(x, updatedX); // Prints 5, 6
+
+//### 4 
+/**
+ * Redux uses a special object called the store. The store acts as a container for state,
+ *  it provides a way to dispatch actions, and it calls the reducer when actions are dispatched.
+ *  In nearly every Redux application, there will only be one store
+ */
+
