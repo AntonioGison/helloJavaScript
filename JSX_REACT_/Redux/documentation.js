@@ -123,3 +123,13 @@ store.dispatch({type: 'increment'});
 
 //output: 2 don't forget to console log!
 console.log(store.getState());
+
+//###4C
+//to avoid misspelling, typo etc we use action creators, basically an empty function with the action
+
+const toggle = () => {
+    return { type: "toggle" };
+  }
+  store.dispatch(toggle()); // Toggles the light to 'off'
+  store.dispatch(toggle()); // Toggles the light back to 'on'
+  store.dispatch(toggle()); // Toggles the light back to 'off'
