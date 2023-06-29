@@ -118,7 +118,7 @@ In addition to history.push(), the history object has a few more useful methods 
 history.goBack() which navigates to the previous URL in the history stack
 history.goForward() which navigates to the next URL in the history stack
 history.go(n) which navigates n entries (where positive n values are forward and negative n values are backward) through the history stack
-
+history.push(location) //which redirects the user to the provided location
 
 //-------------------------------------------------
 //-------------------------------------------------
