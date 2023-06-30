@@ -20,7 +20,7 @@ export const ContactsPage = ({contacts, newContact}) => {
 
   useEffect(() => {
    
-    if(name != ''){
+    if(name !== ''){
       if(checkDuplicate(contacts, name)){
           setDuplicate(true);
       }
@@ -28,7 +28,6 @@ export const ContactsPage = ({contacts, newContact}) => {
         setDuplicate(false);
       }
     }
-    
 
   }, [name]);
 
@@ -36,11 +35,16 @@ export const ContactsPage = ({contacts, newContact}) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
+
     if(duplicate)
       {return}
 
     newContact(name, phone, email)
+
+    //is this correct to clear data?
+    setName('');
+    setPhone('');
+    setEmail('');
 
     /*
     Add contact info and clear data
@@ -62,7 +66,7 @@ export const ContactsPage = ({contacts, newContact}) => {
       <hr />
       <section>
         <h2>Contacts</h2>
-        <TileList />
+        <TileList tileData={contacts} />
       </section>
     </div>
   );
