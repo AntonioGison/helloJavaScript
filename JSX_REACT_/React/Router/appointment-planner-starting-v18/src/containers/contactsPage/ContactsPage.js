@@ -40,8 +40,6 @@ export const ContactsPage = ({contacts, newContact}) => {
       {return}
 
     newContact(name, phone, email)
-
-    //is this correct to clear data?
     setName('');
     setPhone('');
     setEmail('');
