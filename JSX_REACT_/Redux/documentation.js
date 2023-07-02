@@ -19,7 +19,7 @@ const action = {
 // When an action is generated and notifies other parts of the application, we say that the action is dispatched.
 
 /////////////////////////////////////////////////////////////////////////////////
-
+//      REDUCER
 //an example of an action used in a reducer function
 //to tie state and actions together, we write a function called a reducer
 const reducer = (state = 0, action) => {
