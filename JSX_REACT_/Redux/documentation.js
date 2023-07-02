@@ -133,3 +133,39 @@ const toggle = () => {
   store.dispatch(toggle()); // Toggles the light to 'off'
   store.dispatch(toggle()); // Toggles the light back to 'on'
   store.dispatch(toggle()); // Toggles the light back to 'off'
+
+
+//###4D
+//      store.subscribe()
+//actions dispatched to the store can be listened for and responded to using the store.subscribe()
+
+const reactToChange = () => console.log('change detected!');
+store.subscribe(reactToChange);
+
+//In this example, --> EACH TIME <-- an action is dispatched to the store, and a change to the state occurs,
+// the subscribed listener, reactToChange(), will be executed.
+
+//-----------------------------------------------------------------------------------------------------------------------------------------
+//Sometimes it is useful to stop the listener from responding to changes to the store, so store.subscribe() returns an unsubscribe function.
+// lightSwitchReducer(), toggle(), and store omitted...
+ 
+const reactToChange = () => {
+  console.log(`The light was switched ${store.getState()}!`);
+}
+const unsubscribe = store.subscribe(reactToChange);
+ 
+store.dispatch(toggle());
+// reactToChange() is called, printing:
+// 'The light was switched off!'
+ 
+store.dispatch(toggle());
+// reactToChange() is called, printing:
+// 'The light was switched on!'
+ 
+unsubscribe(); 
+// reactToChange() is now unsubscribed
+ 
+store.dispatch(toggle());
+// no print statement!
+ 
+console.log(store.getState()); // Prints 'off'
