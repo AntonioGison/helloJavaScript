@@ -1,4 +1,0 @@
-
-
-
-npm install react-redux
