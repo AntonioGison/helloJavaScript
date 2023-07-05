@@ -34,7 +34,7 @@ const options = {
     
    const todosSlice = createSlice(options);
 
-   //each value of reducers has (state, action)
+   //when we want to access information, we use these arguments (state, action)
 ////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -76,3 +76,18 @@ export default todosSlice.reducer
 configureStore()
 // wraps around the Redux library’s createStore() method and the combineReducers() method,
 // and handles most of the store setup for us automatically.
+
+import todosReducer from '.todos/todosSlice';
+import filterReducer from '.filter/filterSlice';
+
+const store = configureStore({
+  reducer: {
+    todos: todosReducer, 
+    filter: filterReducer
+  }
+});
+
+//configureStore() accepts a single configuration object parameter.
+// The input object should have a reducer property that is assigned a function to be used as the root reducer,
+// or an object of slice reducers which will be combined to create a root reducer. When reducer is an object configureStore(
+// will create a root reducer using Redux’s combineReducers()
