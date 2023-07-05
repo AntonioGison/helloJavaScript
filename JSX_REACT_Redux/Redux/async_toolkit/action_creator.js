@@ -4,6 +4,7 @@ import {
   removeFavoriteRecipe,
 } from "../favoriteRecipes/favoriteRecipesSlice";
 import { selectSearchTerm } from "../search/searchSlice";
+
 export const loadRecipes = createAsyncThunk(
   "allRecipes/getAllRecipes",
   async () => {
