@@ -3,7 +3,7 @@ import Profile from './components/Profile';
 import Login from './components/Login';
 import Theme from './components/Theme';
 import TodoForm from './components/TodoForm';
-import TodoItem from './components/TodoItem';
+import TodoList from './components/TodoList';
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
       <Theme />
       <br></br>
       <TodoForm />
-      <TodoItem />
+      <TodoList />
     </div>
   );
 }

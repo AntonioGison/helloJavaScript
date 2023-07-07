@@ -21,7 +21,7 @@ function TodoForm() {
 
   return (
     <div>
-        <input onChange={handleInput} type='text' value={inputValue}/>
+        <input onChange={handleInput} type='text' value={inputValue} />
         
         <button onClick={handleDispatch}>Add</button>
     </div>
