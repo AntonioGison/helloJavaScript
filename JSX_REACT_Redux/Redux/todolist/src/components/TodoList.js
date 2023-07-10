@@ -9,7 +9,7 @@ function TodoList() {
     <ul>
       {tasks?.map(task => (
 
-        <label>
+        <label key={task.id}>
         <TodoItem  key={task.id}  id={task.id} title={task.title} completed={task.completed} />
         </label>
       ))}

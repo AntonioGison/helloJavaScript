@@ -24,8 +24,15 @@ export const todosSlice = createSlice({
           },
 
     completedTodo: (state, action) => {
-        
-    }
+        const idToCheck = action.payload;
+
+        //example of what's inside the const todo: { id: 2, title: "Example Todo 2", completed: false }
+        //find return the object with that id, the whole object
+        const todo = state.find(todo => todo.id === idToCheck);
+        if (todo) {
+          todo.completed = !todo.completed;
+        }
+      }
   },
 });
 

@@ -1,7 +1,7 @@
 import React,  { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux'
-import { removeTodo } from '../features/todosSlice'
+import { removeTodo, completedTodo } from '../features/todosSlice'
 
 function TodoItem({id, title, completed }) {
    const tasks = useSelector(state => state.todos);
@@ -17,7 +17,7 @@ function TodoItem({id, title, completed }) {
 
    const dosomething = ()=>{
         //if you donn't do it thee checkbox will be read only
-        //dispatch(changetoggle)
+        dispatch(completedTodo(id))
    }
 
   return (
