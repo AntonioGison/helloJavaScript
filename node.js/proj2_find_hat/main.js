@@ -33,6 +33,7 @@ class Field {
     move(direction) {
         let x = this.currentPosition[0];
         let y = this.currentPosition[1];
+        console.log(x, y);
         switch (direction) {
           case 'up':
             y -= 1;
@@ -42,8 +43,13 @@ class Field {
 
           case 'down': 
             y += 1;
+            console.log('field: ', this.field);
+            console.log('y: ',y);
+            console.log('x: ', x);
             this.field[y][x] = '*';
-            this.currentPosition = [y][0];
+            console.log('before: ', this.currentPosition);
+            this.currentPosition = [y, 0];
+            console.log('after: ', this.currentPosition);
             break;
           case 'left':
             this.currentPosition[0] -= 1;
