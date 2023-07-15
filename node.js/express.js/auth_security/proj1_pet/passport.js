@@ -15,7 +15,7 @@ passport.use(
       return done(null, user);
     });
   })
-);
+); 
 
 // Serialize a user
 passport.serializeUser((user, done) => {
